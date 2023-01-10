@@ -30,3 +30,16 @@ body {
 a {
   text-decoration: none;
 }
+
+/* Universal animation for SVG  */
+.svg_appear {
+  animation: animatebottom 1.3s ease-in;
+}
+@keyframes animatebottom {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
