@@ -1,5 +1,5 @@
 import {
-  faCss3,
+  faCss3Alt,
   faHtml5,
   faJsSquare,
   faReact,
@@ -27,7 +27,7 @@ export default function Section2() {
             </p>
           </div>
           <div className={style.grid_item}>
-            <FontAwesomeIcon icon={faCss3} className={style.fa_icons} />
+            <FontAwesomeIcon icon={faCss3Alt} className={style.fa_icons} />
             <h4>CSS</h4>
             <p>
               Skilled in CSS, that is used to describe the look and formatting
