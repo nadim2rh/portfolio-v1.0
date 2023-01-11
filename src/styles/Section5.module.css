@@ -8,6 +8,17 @@
   margin: 2rem auto;
 }
 
+.s5_h2 {
+  font-size: 44px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.s5_h4 {
+  font-size: 18px;
+  text-align: center;
+}
+
 .s6_content {
   padding: 40px 0;
   margin: 50px auto;
@@ -150,7 +161,15 @@
     width: 90%;
     margin: 10px auto;
   }
-
+  .s5_h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  .s5_h4 {
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 35px;
+  }
   .s6_content {
     padding: 10px 0;
     margin: 10px auto;
@@ -164,6 +183,7 @@
     width: 250px;
   }
   .s6_content_right_down p {
+    font-size: 13px;
     text-align: justify;
     margin-bottom: 10px;
   }

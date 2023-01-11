@@ -145,7 +145,15 @@
     width: 90%;
     margin: 10px auto;
   }
-
+  .s4_h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+  .s4_h4 {
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 35px;
+  }
   .s5_content_left svg {
     max-height: 150px;
   }

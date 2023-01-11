@@ -33,11 +33,11 @@ export default function Section5() {
   return (
     <div id="Contact" className={style.section6_container}>
       <div className={style.section6_inner}>
-        <h2 className={style.s3_h2}>
+        <h2 className={style.s5_h2}>
           <span style={{ color: "#6d28d9" }}>Contact</span> Me
         </h2>
-        <h4 className={style.s3_h4}>
-          Get in touch for order enquiry or further info
+        <h4 className={style.s5_h4}>
+          Hit me up if you need further information
         </h4>
         <div className={style.s6_content}>
           <div className={style.s6_content_left}>
@@ -363,14 +363,15 @@ export default function Section5() {
               <p>
                 Thank you for visiting my portfolio. If you have any questions
                 or would like to discuss a potential project, please don't
-                hesitate to contact me. You can reach me at
+                hesitate to contact me. You can reach me at&nbsp;
                 <a
                   style={{ color: "#6c63ff", fontWeight: "bold" }}
                   href="mailto:nadimrahman@hotmail.com"
                 >
                   nadimrahman@hotmail.com
                 </a>
-                or by filling out the form. I look forward to hearing from you!
+                &nbsp;or by filling out the form. I look forward to hearing from
+                you!
               </p>
             </div>
           </div>

@@ -20,7 +20,7 @@ export default function Nav() {
   };
 
   return (
-    <nav id={style.navbar}>
+    <nav id={style.navbar} style={{ zIndex: "100" }}>
       <div className={style.logo}>
         <a href="#Home">
           <img src={logo} alt="" />
