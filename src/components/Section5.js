@@ -1,52 +1,82 @@
-import "../styles/Section5.css";
+import { useEffect, useRef, useState } from "react";
+import style from "../styles/Section5.module.css";
 
 export default function Section5() {
+  const [svgClass, setSvgClass] = useState();
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+    // Create an IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // Check if the element is visible
+        if (entry.intersectionRatio > 0) {
+          setSvgClass(`${style.svg_appear}`);
+        } else {
+          setSvgClass();
+        }
+      });
+    });
+
+    // Start observing the ref
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    // Clean up the observer when the component unmounts
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div id="Contact" className="section6_container">
-      <div className="section6_inner">
-        <h2 className="s3_h2">
+    <div id="Contact" className={style.section6_container}>
+      <div className={style.section6_inner}>
+        <h2 className={style.s3_h2}>
           <span style={{ color: "#6d28d9" }}>Contact</span> Me
         </h2>
-        <h4 className="s3_h4">
+        <h4 className={style.s3_h4}>
           Get in touch for order enquiry or further info
         </h4>
-        <div className="s6_content">
-          <div className="s6_content_left">
-            <form className="enquiry_form" action="#">
-              <div className="textInput">
+        <div className={style.s6_content}>
+          <div className={style.s6_content_left}>
+            <form className={style.enquiry_form} action="#">
+              <div className={style.textInput}>
                 <i className="material-icons-outlined">person</i>
                 <input type="text" placeholder="Enter name" />
               </div>
 
-              <div className="textInput">
+              <div className={style.textInput}>
                 <i className="material-icons-outlined">mail</i>
                 <input type="text" placeholder="Enter email" />
               </div>
-              <div className="textInput">
+              <div className={style.textInput}>
                 <i className="material-icons-outlined">call</i>
                 <input type="tel" placeholder="Enter phone" />
               </div>
-              <div className="textInput">
+              <div className={style.textInput}>
                 <i className="material-icons-outlined">apartment</i>
                 <input type="text" placeholder="Company name" />
               </div>
 
-              <div className="textArea">
+              <div className={style.textArea}>
                 <i className="material-icons-outlined">article</i>
                 <textarea
                   rows="7"
                   placeholder="Write your enquiry message !"
                 ></textarea>
               </div>
-              <div className="c_form_button">
+              <div className={style.c_form_button}>
                 <button>Send Enquiry</button>
               </div>
             </form>
           </div>
-          <div className="s6_content_right">
-            <div className="s6_content_right_up">
+          <div className={style.s6_content_right}>
+            <div ref={ref} className={style.s6_content_right_up}>
               <svg
                 id="contact_svg"
+                className={svgClass}
                 width="980"
                 height="425"
                 viewBox="0 0 980 425"
@@ -299,7 +329,7 @@ export default function Section5() {
                     d="M792.449 25.7794C789.826 20.8319 786.495 10.9716 781.202 9.14288C778.263 8.16828 775.225 7.52112 772.143 7.21316L763.147 10.6732L768.043 6.86524C767.09 6.80845 766.137 6.76202 765.185 6.72596L759.115 9.0605L762.221 6.64518C756.562 6.5871 750.721 7.1755 746.336 10.6204C742.598 13.5572 738.894 24.6822 738.296 29.3979C737.655 33.9092 737.879 38.501 738.956 42.9285L740.493 44.3901C741.031 43.1572 741.435 41.8703 741.699 40.5513C742.25 38.0869 743.309 35.7643 744.807 33.7315C746.305 31.6988 748.211 30.0005 750.402 28.7449L750.485 28.6977C753.064 27.2467 756.192 27.3136 759.148 27.42L773.19 27.9253C776.568 28.0468 780.206 28.2606 782.84 30.3797C784.514 31.9429 785.83 33.8496 786.698 35.969C788.007 38.6104 790.564 48.5731 790.564 48.5731C790.564 48.5731 792.011 46.6926 792.705 48.0923C793.817 44.4403 794.493 40.6696 794.719 36.8588C794.94 33.031 794.158 29.2118 792.449 25.7794V25.7794Z"
                     fill="#2F2E41"
                   />
-                  <g id="contact_hand">
+                  <g id={style.contact_hand}>
                     <path
                       id="Vector_50"
                       d="M885.358 53.3018C883.663 53.4134 882.014 53.8951 880.526 54.7131C879.037 55.5312 877.747 56.6655 876.744 58.0363C875.742 59.4071 875.052 60.981 874.724 62.6471C874.396 64.3133 874.437 66.0311 874.844 67.6797L853.483 83.4369L859.893 98.7536L889.746 76.0777C892.471 75.2096 894.782 73.3725 896.242 70.9143C897.702 68.4562 898.209 65.5478 897.668 62.7404C897.127 59.933 895.575 57.4215 893.306 55.6819C891.038 53.9423 888.209 53.0955 885.358 53.3018Z"
@@ -329,7 +359,7 @@ export default function Section5() {
                 </defs>
               </svg>
             </div>
-            <div className="s6_content_right_down">
+            <div className={style.s6_content_right_down}>
               <p>
                 Thank you for visiting my portfolio. If you have any questions
                 or would like to discuss a potential project, please don't

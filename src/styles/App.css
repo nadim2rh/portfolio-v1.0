@@ -19,7 +19,6 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: var(--fontPrimary);
   font-family: "Montserrat", sans-serif;
 }
 
@@ -29,17 +28,5 @@ body {
 
 a {
   text-decoration: none;
-}
-
-/* Universal animation for SVG  */
-.svg_appear {
-  animation: animatebottom 1.3s ease-in;
-}
-@keyframes animatebottom {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  color: var(--fontPrimary);
 }

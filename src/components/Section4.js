@@ -1,16 +1,58 @@
-import "../styles/Section4.css";
+import { useEffect, useRef, useState } from "react";
+import style from "../styles/Section4.module.css";
+
 export default function Section4() {
+  const [svgClass, setSvgClass] = useState();
+  const [seq2Class, setSeq2Class] = useState();
+  const [reqClass, setReqClass] = useState();
+  const [svgOpacity, setSvgOpacity] = useState();
+  const ref = useRef(null);
+
+  useEffect(() => {
+    // Create an IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // Check if the element is visible
+        if (entry.intersectionRatio > 0) {
+          setSvgClass(`${style.svg_appear}`);
+          setSeq2Class(`${style.sq2_anm}`);
+          setReqClass(`${style.req_anm}`);
+          setSvgOpacity(1);
+        } else {
+          setSvgClass();
+          setSeq2Class();
+          setReqClass();
+          setSvgOpacity(0);
+        }
+      });
+    });
+
+    // Start observing the ref
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    // Clean up the observer when the component unmounts
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <div id="Maintenance" className="section5_container">
-      <div className="section5_inner">
-        <h2 className="s3_h2">
+    <div id="Maintenance" className={style.section5_container}>
+      <div className={style.section5_inner}>
+        <h2 className={style.s4_h2}>
           Website <span style={{ color: "#6d28d9" }}>Maintenance</span>
         </h2>
-        <h4 className="s3_h4">Tasks related to maintenance that I handled</h4>
-        <div className="s5_content">
-          <div className="s5_content_left">
+        <h4 className={style.s4_h4}>
+          Tasks related to maintenance that I handled
+        </h4>
+        <div className={style.s5_content}>
+          <div ref={ref} className={style.s5_content_left}>
             <svg
               id="maintenance_svg"
+              className={svgClass}
+              style={{ opacity: `${svgOpacity}` }}
               width="898"
               height="557"
               viewBox="0 0 898 557"
@@ -23,7 +65,7 @@ export default function Section4() {
                   d="M656.713 116.141H222.703C220.565 116.142 218.514 116.99 217.001 118.502C215.487 120.013 214.636 122.063 214.633 124.201V329.071C214.636 331.211 215.487 333.262 217 334.775C218.512 336.288 220.564 337.139 222.703 337.141H656.713C658.851 337.137 660.9 336.285 662.411 334.772C663.922 333.26 664.771 331.209 664.773 329.071V124.201C664.771 122.064 663.921 120.016 662.41 118.505C660.899 116.994 658.85 116.144 656.713 116.141V116.141Z"
                   fill="#B1ABFC"
                 />
-                <g id="req" className="req">
+                <g id="req" className={reqClass}>
                   <g id="plus2">
                     <path
                       id="Vector_2"
@@ -88,7 +130,7 @@ export default function Section4() {
                   d="M156.425 347.096L84.3992 348.975L85.6518 384.049C85.6518 384.049 84.3992 393.444 86.9044 395.949C89.4097 398.454 90.6623 398.454 89.4097 402.838C88.157 407.223 84.9187 449.112 84.9187 449.112C84.9187 449.112 55.3572 501.382 56.6098 502.634C57.8624 503.887 59.115 502.634 57.8624 505.766C56.6098 508.898 55.3572 507.645 56.6098 508.898C57.7194 510.094 58.7647 511.348 59.7414 512.655H80.1569C80.1569 512.655 81.2986 506.392 81.2986 505.766C81.2986 505.14 82.5512 501.382 82.5512 500.756C82.5512 500.129 118.22 462.338 118.22 462.338L125.736 399.707L143.899 461.085C143.899 461.085 143.899 514.948 145.152 516.201C146.404 517.454 146.404 516.827 145.778 519.333C145.152 521.838 142.646 521.211 144.525 523.09C146.404 524.969 147.03 521.838 146.404 524.969L145.778 528.101L169.84 528.37C169.84 528.37 172.346 523.09 171.093 521.211C169.84 519.333 169.915 519.845 171.444 516.771C172.972 513.696 173.598 513.069 172.972 512.443C172.346 511.817 172.346 508.485 172.346 508.485C172.346 508.485 163.315 385.302 163.315 383.423C163.267 382.456 163.446 381.491 163.835 380.605V378.055L161.436 369.017L156.425 347.096Z"
                   fill="#2F2E41"
                 />
-                <g id="sq2" className="sq2">
+                <g id="sq2" className={seq2Class}>
                   <g id="plus1">
                     <path
                       id="Vector_13"
@@ -128,7 +170,7 @@ export default function Section4() {
                     fill="white"
                   />
                 </g>
-                <g id="sq1">
+                <g id={style.sq1}>
                   <path
                     id="Vector_19"
                     d="M327.887 228.266H222.877C220.738 228.264 218.688 227.413 217.176 225.901C215.663 224.389 214.813 222.339 214.81 220.2V124.332C214.813 122.194 215.664 120.144 217.176 118.632C218.688 117.119 220.738 116.269 222.877 116.266H327.887C330.025 116.269 332.076 117.119 333.588 118.632C335.1 120.144 335.951 122.194 335.953 124.332V220.2C335.951 222.339 335.1 224.389 333.588 225.901C332.076 227.413 330.026 228.264 327.887 228.266V228.266Z"
@@ -176,7 +218,7 @@ export default function Section4() {
                   d="M282.67 555.785C282.671 555.942 282.64 556.097 282.58 556.241C282.521 556.386 282.433 556.517 282.323 556.628C282.212 556.738 282.081 556.826 281.936 556.886C281.791 556.945 281.636 556.976 281.48 556.975H1.19C0.874395 556.975 0.57171 556.85 0.348541 556.627C0.125373 556.404 0 556.101 0 555.785C0 555.47 0.125373 555.167 0.348541 554.944C0.57171 554.721 0.874395 554.595 1.19 554.595H281.48C281.636 554.595 281.791 554.625 281.936 554.685C282.081 554.745 282.212 554.832 282.323 554.943C282.433 555.053 282.521 555.185 282.58 555.329C282.64 555.474 282.671 555.629 282.67 555.785V555.785Z"
                   fill="#CCCCCC"
                 />
-                <g id="maintenance_hand">
+                <g id={style.maintenance_hand}>
                   <path
                     id="Vector_28"
                     d="M220.555 171.576C221.418 173.99 221.298 176.646 220.221 178.972C219.144 181.299 217.195 183.108 214.796 184.011C214.265 184.209 213.718 184.36 213.161 184.462L207.614 218.421L194.604 206.409L201.866 176.002C201.597 173.44 202.347 170.875 203.955 168.861C205.562 166.848 207.897 165.548 210.455 165.243C212.608 164.996 214.78 165.489 216.615 166.639C218.45 167.79 219.84 169.531 220.555 171.576L220.555 171.576Z"
@@ -226,10 +268,10 @@ export default function Section4() {
               </defs>
             </svg>
           </div>
-          <div className="s5_content_right">
+          <div className={style.s5_content_right}>
             <h4>Maintenance tasks includes:</h4>
-            <div className="mt_full">
-              <div className="mt_1">
+            <div className={style.mt_full}>
+              <div className={style.mt_1}>
                 <ul>
                   <li>
                     <i className="material-icons-outlined">check_circle</i>{" "}
@@ -253,7 +295,7 @@ export default function Section4() {
                   </li>
                 </ul>
               </div>
-              <div className="mt_2">
+              <div className={style.mt_2}>
                 <ul>
                   <li>
                     <i className="material-icons-outlined">check_circle</i> On

@@ -1,36 +1,39 @@
 import { useState } from "react";
 import logo from "../assets/logo.png";
-import "../styles/Nav.css";
+import style from "../styles/Nav.module.css";
 
 export default function Nav() {
-  const [showMenuClass, setShowMenuClass] = useState("menu");
+  const [showMenuClass, setShowMenuClass] = useState(`${style.menu}`);
   const [menuIcon, setMenuIcon] = useState("menu");
 
   const toggleMenu = () => {
-    if (showMenuClass === "menu" || showMenuClass === "menu smooth_menu") {
-      setShowMenuClass("menu show_menu");
+    if (
+      showMenuClass === `${style.menu}` ||
+      showMenuClass === `${style.menu} ${style.smooth_menu}`
+    ) {
+      setShowMenuClass(`${style.menu} ${style.show_menu}`);
       setMenuIcon("close");
     } else {
-      setShowMenuClass("menu smooth_menu");
+      setShowMenuClass(`${style.menu} ${style.smooth_menu}`);
       setMenuIcon("menu");
     }
   };
 
   return (
-    <nav id="navbar">
-      <div className="logo">
+    <nav id={style.navbar}>
+      <div className={style.logo}>
         <a href="#Home">
           <img src={logo} alt="" />
         </a>
 
-        <span className="res_menu_btn" onClick={toggleMenu}>
-          <i id="menu_icon" className="material-icons-outlined">
+        <span className={style.res_menu_btn} onClick={toggleMenu}>
+          <i id={style.menu_icon} className="material-icons-outlined">
             {menuIcon}
           </i>
         </span>
       </div>
 
-      <div id="main_menu" className={showMenuClass}>
+      <div id={style.main_menu} className={showMenuClass}>
         <ul>
           <li onClick={toggleMenu}>
             <a href="#Home">Home</a>
@@ -48,12 +51,12 @@ export default function Nav() {
             <a href="#Contact">Contact</a>
           </li>
         </ul>
-        <div className="account">
-          <div className="sign_up acc_btn">
+        <div className={style.account}>
+          <div className={`${style.sign_up} ${style.acc_btn}`}>
             <i className="material-icons-outlined">account_circle</i>
             <a href="./signup">Signup</a>
           </div>
-          <div className="login acc_btn">
+          <div className={`${style.login} ${style.acc_btn}`}>
             <i className="material-icons-outlined">login</i>
             <a href="./login">Login</a>
           </div>

@@ -1,16 +1,23 @@
+import {
+  faFacebookSquare,
+  faInstagramSquare,
+  faLinkedin,
+  faYoutubeSquare,
+} from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../assets/logo.png";
-import "../styles/Footer.css";
+import style from "../styles/Footer.module.css";
 
 export default function Footer() {
   return (
-    <div className="footer_container">
-      <div className="footer_inner">
-        <div className="footer_top">
-          <div className="footer_top_left">
-            <div className="footer_top_left_up">
+    <div className={style.footer_container}>
+      <div className={style.footer_inner}>
+        <div className={style.footer_top}>
+          <div className={style.footer_top_left}>
+            <div className={style.footer_top_left_up}>
               <img src={logo} alt="" />
             </div>
-            <div className="footer_top_left_down">
+            <div className={style.footer_top_left_down}>
               <ul>
                 <li>
                   <a href="./about">About me</a>
@@ -24,36 +31,48 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="footer_top_right">
+          <div className={style.footer_top_right}>
             <ul>
               <li>
                 <a href="./fb">
-                  <i className="fa-brands fa-square-facebook"></i>
+                  <FontAwesomeIcon
+                    icon={faFacebookSquare}
+                    className={style.fa_icons}
+                  />
                 </a>
               </li>
               <li>
                 <a href="./ig">
-                  <i className="fa-brands fa-instagram"></i>
+                  <FontAwesomeIcon
+                    icon={faInstagramSquare}
+                    className={style.fa_icons}
+                  />
                 </a>
               </li>
               <li>
                 <a href="./li">
-                  <i className="fa-brands fa-linkedin"></i>
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    className={style.fa_icons}
+                  />
                 </a>
               </li>
               <li>
                 <a href="./yt">
-                  <i className="fa-brands fa-youtube"></i>
+                  <FontAwesomeIcon
+                    icon={faYoutubeSquare}
+                    className={style.fa_icons}
+                  />
                 </a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="footer_down">
-          <div className="footer_down_left">
+        <div className={style.footer_down}>
+          <div className={style.footer_down_left}>
             <p>Copyright © 2023 All rights reserved by NADIM RAHMAN</p>
           </div>
-          <div className="footer_down_right">
+          <div className={style.footer_down_right}>
             <ul>
               <li>
                 <a href="./policy">Policy</a>
